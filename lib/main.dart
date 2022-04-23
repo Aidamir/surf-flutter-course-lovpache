@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
 class MyFirstWidget extends StatelessWidget {
   MyFirstWidget({Key? key}) : super(key: key);
   int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     counter++;
@@ -28,14 +29,36 @@ class MyFirstStfulWidget extends StatefulWidget {
 
 class _MyFirstStfulWidgetState extends State<MyFirstStfulWidget> {
   int counter = 0;
+
+  getContext(){
+    return context.runtimeType;
+  }
+
   @override
   Widget build(BuildContext context) {
     counter++;
     print("In build $counter");
     return Container(
       child: Center(
-        child: Text("I was rebuilt $counter times"),
+        child: Text("I was rebuilt: $counter times",
+        ),
       ),
+    );
+  }
+}
+
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'App Title',
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+      ),
+      home: MyFirstStfulWidget(),
     );
   }
 }
