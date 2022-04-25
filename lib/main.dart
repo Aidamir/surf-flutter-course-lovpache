@@ -11,11 +11,9 @@ class MyFirstWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     counter++;
-    print("In build $counter");
-    return Container(
-      child: Center(
-        child: Text("I was rebuilt $counter times"),
-      ),
+    // print("In build $counter");
+    return Center(
+      child: Text("I was rebuilt $counter times"),
     );
   }
 }
@@ -37,11 +35,9 @@ class _MyFirstStfulWidgetState extends State<MyFirstStfulWidget> {
   @override
   Widget build(BuildContext context) {
     counter++;
-    print("In build $counter");
-    return Container(
-      child: Center(
-        child: Text("I was rebuilt: $counter times",
-        ),
+    // print("In build $counter");
+    return Center(
+      child: Text("I was rebuilt: $counter times",
       ),
     );
   }
@@ -58,7 +54,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: MyFirstStfulWidget(),
+      home: const MyFirstStfulWidget(),
     );
   }
 }
@@ -76,7 +72,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyFirstStfulWidget(),
+      home: const MyFirstStfulWidget(),
     );
   }
 }
