@@ -6,15 +6,16 @@ void main() {
 }
 
 class MyFirstWidget extends StatelessWidget {
-  MyFirstWidget({Key? key}) : super(key: key);
   int counter = 0;
+  MyFirstWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     counter++;
     // print("In build $counter");
+
     return Center(
-      child: Text("I was rebuilt $counter times"),
+      child: Text('I was rebuilt $counter times'),
     );
   }
 }
@@ -29,18 +30,16 @@ class MyFirstStfulWidget extends StatefulWidget {
 class _MyFirstStfulWidgetState extends State<MyFirstStfulWidget> {
   int counter = 0;
 
-  getContext(){
-    return context.runtimeType;
-  }
-
   @override
   Widget build(BuildContext context) {
     counter++;
     // print("In build $counter");
-    return Center(
-      child: Text("I was rebuilt: $counter times",
-      ),
-    );
+
+    return Center(child: Text('I was rebuilt: $counter times'));
+  }
+
+  dynamic getContext() {
+    return context.runtimeType;
   }
 }
 
@@ -60,8 +59,6 @@ class App extends StatelessWidget {
   }
 }
 
-
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -79,22 +76,14 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
-
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,5 +111,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
   }
 }
