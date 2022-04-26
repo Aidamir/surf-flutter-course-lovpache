@@ -13,7 +13,6 @@ const appBarTextStyle = TextStyle(
   fontSize: 32,
   fontStyle: FontStyle.normal,
   fontWeight: FontWeight.w700,
-//  letterSpacing: 0.5,
 );
 const backgroundColor = Color(0xFFF5F5F5);
 
