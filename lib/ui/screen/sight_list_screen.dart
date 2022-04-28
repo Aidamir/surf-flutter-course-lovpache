@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/res/constants.dart';
 
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
@@ -6,15 +7,6 @@ class SightListScreen extends StatefulWidget {
   @override
   State<SightListScreen> createState() => _SightListScreenState();
 }
-
-const appBarTextStyle = TextStyle(
-  color: Color(0xff252849),
-  fontFamily: 'Roboto',
-  fontSize: 32,
-  fontStyle: FontStyle.normal,
-  fontWeight: FontWeight.w700,
-);
-const backgroundColor = Color(0xFFF5F5F5);
 
 class _SightListScreenState extends State<SightListScreen> {
   @override
@@ -24,7 +16,7 @@ class _SightListScreenState extends State<SightListScreen> {
         title: Padding(
           padding: const EdgeInsets.only(top: 40.0),
           child: RichText(
-            text: const TextSpan(style: appBarTextStyle, children: [
+            text: const TextSpan(style: AppTypography.appBarTextStyle, children: [
               TextSpan(text: 'C', style: TextStyle(color: Color(0xff4CAF50))),
               TextSpan(text: 'писок\n'),
               TextSpan(text: 'и', style: TextStyle(color: Color(0xffFCDD3D))),
@@ -34,11 +26,11 @@ class _SightListScreenState extends State<SightListScreen> {
         ),
         elevation: 0,
         toolbarHeight: 112,
-        backgroundColor: backgroundColor,
+        backgroundColor: AppColors.backgroundColor,
       ),
       resizeToAvoidBottomInset: false,
       body: const Center(child: Text('Hello!')),
-      backgroundColor: backgroundColor,
+      backgroundColor: AppColors.backgroundColor,
     );
   }
 }
