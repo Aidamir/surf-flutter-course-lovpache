@@ -13,6 +13,19 @@ class _SightListScreenState extends State<SightListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 40.0),
+          child: RichText(
+            text: const TextSpan(style: AppTypography.appBarTextStyle, children: [
+              TextSpan(text: 'C', style: TextStyle(color: Color(0xff4CAF50))),
+              TextSpan(text: 'писок\n'),
+              TextSpan(text: 'и', style: TextStyle(color: Color(0xffFCDD3D))),
+              TextSpan(text: 'нтересных мест'),
+            ]),
+          ),
+        ),
+        elevation: 0,
+        toolbarHeight: 112,
         title: const Text(AppStrings.appTitle,   style: AppTypography.appBarTextStyle),
         elevation: 0,
         toolbarHeight: 80,
