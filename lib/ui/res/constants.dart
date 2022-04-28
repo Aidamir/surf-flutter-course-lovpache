@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Строковые константы приложения
 class AppStrings {
-  static const appTitle = 'Список иинтересных мест';
+  static const appTitle = 'Список\nиинтересных мест';
 }
 
 class AppAssets {
