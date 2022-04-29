@@ -24,14 +24,18 @@ class _SightListScreenState extends State<SightListScreen> {
         backgroundColor: AppColors.backgroundColor,
       ),
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            SightCard(sight: mocks[0]),
-            const SizedBox(height: 16),
-            SightCard(sight: mocks[1]),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              SightCard(sight: mocks[0]),
+              const SizedBox(height: 16),
+              SightCard(sight: mocks[1]),
+              const SizedBox(height: 16),
+              SightCard(sight: mocks[2]),
+            ],
+          ),
         ),
       ),
     );
