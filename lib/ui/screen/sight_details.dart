@@ -5,7 +5,7 @@ import 'package:places/ui/res/constants.dart';
 class SightDetails extends StatelessWidget {
   final Sight sight;
 
-  SightDetails({Key? key, required this.sight}) : super(key: key);
+  const SightDetails({Key? key, required this.sight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +37,15 @@ class SightDetails extends StatelessWidget {
                     children: [
                       Text(
                         sight.name,
-                        style: AppTypography.placeDetailTitle,
+                        style: AppTypography.largeTitle24w700,
                       ),
+                      const SizedBox(height: 2,),
                       RichText(
                         text: TextSpan(
                           text: '${sight.type}   ',
-                          style: AppTypography.lightGreyTinyTextStyle.apply(color: AppColors.textColorRegular),
+                          style: AppTypography.lightTextStyle.apply(color: AppColors.textColorRegular,fontWeightDelta: 4),
                           children: const [
-                            TextSpan(text: 'Закрыто до 09.00', style: AppTypography.lightGreyTinyTextStyle),
+                            TextSpan(text: 'Закрыто до 09.00', style: AppTypography.lightTextStyle),
                           ],
                         ),
                       ),
@@ -52,15 +53,15 @@ class SightDetails extends StatelessWidget {
                         height: 24,
                       ),
                       Text(sight.details,
-                          style: AppTypography.lightGreyTinyTextStyle.apply(color: AppColors.textColorRegular,),),
+                          style: AppTypography.lightTextStyle.apply(color: AppColors.textColorRegular,),),
                       const SizedBox(
                         height: 24,
                       ),
                       TextButton(
                         style: TextButton.styleFrom(
-                          minimumSize: Size.fromHeight(48),
-                          textStyle: AppTypography.lightGreyTinyTextStyle.apply(color: Colors.white, fontWeightDelta: 3),
-                          primary: Colors.white,
+                          minimumSize: const Size.fromHeight(48),
+                          textStyle: AppTypography.lightTextStyle.apply(fontWeightDelta: 3),
+                          primary: AppColors.backgroundColor,
                           backgroundColor: Colors.green,
                           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12.0))),
                         ),
@@ -69,10 +70,22 @@ class SightDetails extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Icon(Icons.route_outlined),
+                            SizedBox(width: 3,),
                             Text('ПОСТРОИТЬ МАРШРУТ'),
                           ],
                         ),
                       ),
+                      const SizedBox(height: 24,),
+                      const Divider(color: AppColors.textColorLight,height: 0.8,),
+                      const SizedBox(height: 8,),
+                      Row(
+                        mainAxisAlignment:   MainAxisAlignment.spaceAround,
+                        children: [
+                        Expanded(child: Container(height: 40, child: const Center(child: Text('1 button')), color: Colors.yellow,)),
+                        Expanded(child: Container(height: 40, child: const Center(child: Text('2 button')), color: Colors.amber,)),
+                      ],),
+
+
                     ],
                   ),
                 ),
