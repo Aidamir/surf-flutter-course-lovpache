@@ -27,12 +27,12 @@ class SightCard extends StatelessWidget {
                   Expanded(
                       child: Text(
                     sight.type,
-                    style: AppTypography.placeTitleTextStyle.apply(color: AppColors.placeTypeColor),
+                    style: AppTypography.smallTitle16w500.apply(color: AppColors.backgroundColor),
                   ),),
                   Container(
                     width: 24,
                     height: 24,
-                    color: AppColors.placeTypeColor,
+                    color: AppColors.backgroundColor,
                   ),
                 ],
               ),
@@ -51,11 +51,11 @@ class SightCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(sight.name, style: AppTypography.placeTitleTextStyle),
+              Text(sight.name, style: AppTypography.smallTitle16w500),
               const SizedBox(
                 height: 2,
               ),
-              Text(sight.details, style: AppTypography.lightGreyTinyTextStyle,overflow: TextOverflow.ellipsis,maxLines: 2),
+              Text(sight.details, style: AppTypography.lightTextStyle,overflow: TextOverflow.ellipsis,maxLines: 2),
             ],
           ),
         ),
