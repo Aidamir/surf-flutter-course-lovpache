@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:places/mock.dart';
 import 'package:places/ui/res/constants.dart';
+import 'package:places/ui/screen/sight_card.dart';
 
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
@@ -13,24 +15,25 @@ class _SightListScreenState extends State<SightListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.only(top: 40.0),
-          child: RichText(
-            text: const TextSpan(style: AppTypography.appBarTextStyle, children: [
-              TextSpan(text: 'C', style: TextStyle(color: Color(0xff4CAF50))),
-              TextSpan(text: 'писок\n'),
-              TextSpan(text: 'и', style: TextStyle(color: Color(0xffFCDD3D))),
-              TextSpan(text: 'нтересных мест'),
-            ]),
-          ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 40.0),
+          child: Text('Список\nинтересных мест', style: AppTypography.appBarTextStyle),
         ),
         elevation: 0,
         toolbarHeight: 112,
         backgroundColor: AppColors.backgroundColor,
       ),
       resizeToAvoidBottomInset: false,
-      body: const Center(child: Text('Hello!')),
-      backgroundColor: AppColors.backgroundColor,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            SightCard(sight: mocks[0]),
+            const SizedBox(height: 16),
+            SightCard(sight: mocks[1]),
+          ],
+        ),
+      ),
     );
   }
 }

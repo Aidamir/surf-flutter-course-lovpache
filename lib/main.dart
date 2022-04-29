@@ -15,7 +15,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: AppStrings.appTitle,
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+//        primarySwatch: Colors.grey,
+        scaffoldBackgroundColor: AppColors.backgroundColor,
       ),
       home: const SightListScreen(),
     );
