@@ -45,7 +45,7 @@ class SightDetails extends StatelessWidget {
                           text: '${sight.type}   ',
                           style: AppTypography.lightTextStyle.apply(color: AppColors.textColorRegular,fontWeightDelta: 4),
                           children: const [
-                            TextSpan(text: 'Закрыто до 09.00', style: AppTypography.lightTextStyle),
+                            TextSpan(text: '${AppStrings.closedUntil} 09.00', style: AppTypography.lightTextStyle),
                           ],
                         ),
                       ),
@@ -71,7 +71,7 @@ class SightDetails extends StatelessWidget {
                           children: const [
                             Icon(Icons.route_outlined),
                             SizedBox(width: 3,),
-                            Text('ПОСТРОИТЬ МАРШРУТ'),
+                            Text(AppStrings.bulidRoute),
                           ],
                         ),
                       ),

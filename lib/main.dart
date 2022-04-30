@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:places/mock.dart';
+// import 'package:places/mock.dart';
 import 'package:places/ui/res/constants.dart';
-import 'package:places/ui/screen/sight_details.dart';
+// import 'package:places/ui/screen/sight_details.dart';
+import 'package:places/ui/screen/sight_list_screen.dart';
 //import 'package:places/ui/screen/sight_list_screen.dart';
 
 void main() {
@@ -20,7 +21,8 @@ class App extends StatelessWidget {
 //        primarySwatch: Colors.grey,
         scaffoldBackgroundColor: AppColors.backgroundColor,
       ),
-      home: SightDetails(sight: mocks.first),
+      home: const SightListScreen(),
+      // SightDetails(sight: mocks.first),
     );
   }
 }
