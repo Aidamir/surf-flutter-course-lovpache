@@ -17,12 +17,15 @@ class SightDetails extends StatelessWidget {
               Container(height: 360, color: Colors.blue),
               Padding(
                 padding: const EdgeInsets.only(top: 36, left: 16),
-                child: Container(
-                  height: 32,
-                  width: 32,
-                  decoration:
-                      const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
-                  child:const Icon(Icons.arrow_back_ios_outlined, size: 16),
+                child: InkWell(
+                  onTap: () { Navigator.pop(context); },
+                  child: Container(
+                    height: 32,
+                    width: 32,
+                    decoration:
+                        const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
+                    child:const Icon(Icons.arrow_back_ios_outlined, size: 16),
+                  ),
                 ),
               ),
             ],
