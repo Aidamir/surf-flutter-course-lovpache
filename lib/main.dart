@@ -19,6 +19,7 @@ class App extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.backgroundColor,
       ),
       home: const SightListScreen(),
+      // SightDetails(sight: mocks.first),
     );
   }
 }

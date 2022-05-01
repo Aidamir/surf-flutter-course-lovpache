@@ -17,27 +17,20 @@ class _SightListScreenState extends State<SightListScreen> {
       appBar: AppBar(
         title: const Padding(
           padding: EdgeInsets.only(top: 40.0),
-          child: Text('Список\nинтересных мест', style: AppTypography.appBarTextStyle),
+          child: Text(AppStrings.appTitle, style: AppTypography.appBarTextStyle),
         ),
         elevation: 0,
         toolbarHeight: 112,
         backgroundColor: AppColors.backgroundColor,
       ),
       resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              SightCard(sight: mocks[0]),
-              const SizedBox(height: 16),
-              SightCard(sight: mocks[1]),
-              const SizedBox(height: 16),
-              SightCard(sight: mocks[2]),
-            ],
-          ),
-        ),
-      ),
-    );
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: (mocks.length * 2)-1,
+        itemBuilder: (context, index) {
+          return (index.isOdd) ? const SizedBox(height: 16) : SightCard(sight: mocks.elementAt(index~/2));
+        },),
+      );
+
   }
 }

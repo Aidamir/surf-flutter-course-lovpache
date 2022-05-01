@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/res/constants.dart';
+import 'package:places/ui/screen/sight_details.dart';
+
 
 class SightCard extends StatelessWidget {
   final Sight sight;
@@ -9,57 +11,65 @@ class SightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(
-          children: [
-            Container(
-              height: 96,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
-                color: Colors.deepOrange,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                      child: Text(
-                    sight.type,
-                    style: AppTypography.smallTitle16w500.apply(color: AppColors.backgroundColor),
-                  ),),
-                  Container(
-                    width: 24,
-                    height: 24,
-                    color: AppColors.backgroundColor,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-        Container(
-          height: 96,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
-            color: AppColors.backgroundPlaceItemBottom,
-          ),
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return InkWell(
+      onTap: () {
+        Navigator.push<SightDetails>(
+            context,
+            MaterialPageRoute<SightDetails>(builder: (context) => SightDetails(sight: sight)),);
+      },
+      child: Column(
+        children: [
+          Stack(
             children: [
-              Text(sight.name, style: AppTypography.smallTitle16w500),
-              const SizedBox(
-                height: 2,
+              Container(
+                height: 96,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+                  color: Colors.deepOrange,
+                ),
               ),
-              Text(sight.details, style: AppTypography.lightTextStyle,overflow: TextOverflow.ellipsis,maxLines: 2),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        sight.type,
+                        style: AppTypography.smallTitle16w500.apply(color: AppColors.backgroundColor),
+                      ),
+                    ),
+                    Container(
+                      width: 24,
+                      height: 24,
+                      color: AppColors.backgroundColor,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
-        ),
-      ],
+          Container(
+            height: 96,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
+              color: AppColors.backgroundPlaceItemBottom,
+            ),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(sight.name, style: AppTypography.smallTitle16w500),
+                const SizedBox(
+                  height: 2,
+                ),
+                Text(sight.details, style: AppTypography.lightTextStyle, overflow: TextOverflow.ellipsis, maxLines: 2),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
