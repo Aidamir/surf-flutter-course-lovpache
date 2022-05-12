@@ -14,21 +14,23 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Padding(
-          padding: EdgeInsets.only(top: 40.0),
-          child: Text(AppStrings.appTitle, style: AppTypography.appBarTextStyle),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(112),
+        child: Container(
+          color: AppColors.backgroundColor,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: const Padding(
+            padding: EdgeInsets.only(top: 60.0),
+            child: Text(AppStrings.appTitle, style: AppTypography.appBarTextStyle),
+          ),
         ),
-        elevation: 0,
-        toolbarHeight: 112,
-        backgroundColor: AppColors.backgroundColor,
       ),
       resizeToAvoidBottomInset: false,
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: (mocks.length * 2)-1,
         itemBuilder: (context, index) {
-          return (index.isOdd) ? const SizedBox(height: 16) : SightCard(sight: mocks.elementAt(index~/2));
+          return (index.isOdd) ? const SizedBox(height: 16) : AspectRatio(aspectRatio: 3/2, child: SightCard(sight: mocks.elementAt(index~/2)));
         },),
       );
 
