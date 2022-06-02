@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/res/app_assets.dart';
 import 'package:places/ui/res/constants.dart';
 import 'package:places/ui/screen/widget/heart_widget.dart';
 import 'package:places/ui/util/loading_progress.dart';
@@ -120,7 +121,7 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    SvgPicture.asset('res/images/icons/union.svg'),
+                                    SvgPicture.asset(AppAssets.calendarSvg),
                                     const SizedBox(
                                       width: 9,
                                     ),

@@ -79,7 +79,7 @@ class SightCard extends StatelessWidget with LoadingImageCircularMixin {
                           style: AppTypography.lightTextStyle,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 3,
-                        ), //),
+                        ),
                       ],
                     ),
                   ),

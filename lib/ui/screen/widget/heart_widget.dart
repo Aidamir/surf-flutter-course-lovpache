@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/ui/res/app_assets.dart';
 
 class HeartWidget extends StatelessWidget {
   final Color color;
@@ -12,9 +13,9 @@ class HeartWidget extends StatelessWidget {
       height: 20,
       child: Stack(
         children: [
-          SvgPicture.asset('res/images/icons/heart.svg', color: color,),
+          SvgPicture.asset(AppAssets.heartSvg, color: color,),
           Padding(padding: const EdgeInsets.only(top:4, left: 16),
-            child: SvgPicture.asset('res/images/icons/heart_part.svg', color: color,),
+            child: SvgPicture.asset(AppAssets.heartPartSvg, color: color,),
           ),
         ],
       ),
