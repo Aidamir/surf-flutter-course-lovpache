@@ -5,4 +5,5 @@ class AppColors {
   static const textColorRegular = Color(0xff3B3E5B);
   static const textColorLight = Color(0xff7C7E92);
   static const backgroundPlaceItemBottom = Color(0xfff5f5f5);
+  static const screenTitleColor = Color(0xff252849);
 }

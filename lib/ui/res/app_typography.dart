@@ -41,5 +41,13 @@ class AppTypography {
     fontWeight: FontWeight.w500,
     height: 29/24,
   );
+  static const screenTitleTextStyle = TextStyle(
+    color: AppColors.screenTitleColor,
+    fontFamily: 'Roboto',
+    fontSize: 18,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w500,
+    height: 18/24,
+  );
 
 }
