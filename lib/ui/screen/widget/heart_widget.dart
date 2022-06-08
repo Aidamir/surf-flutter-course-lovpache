@@ -15,7 +15,7 @@ class HeartWidget extends StatelessWidget {
         children: [
           SvgPicture.asset(AppAssets.heartSvg, color: color,),
           Padding(padding: const EdgeInsets.only(top:4, left: 16),
-            child: SvgPicture.asset(AppAssets.heartPartSvg, color: color,),
+            child: SvgPicture.asset(AppAssets.heartSvg, color: color,),
           ),
         ],
       ),

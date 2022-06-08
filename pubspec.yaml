@@ -27,7 +27,7 @@ flutter:
   assets:
     - res/
     - res/images/
-    - res/images/icons/
+    - res/images/icon/
 
   fonts:
     - family: Roboto
@@ -40,4 +40,6 @@ flutter:
           weight: 500
         - asset: res/fonts/Roboto-Bold.ttf
           weight: 700
-
+    - family:  PlacesIcons
+      fonts:
+        - asset: res/fonts/PlacesIcons.ttf

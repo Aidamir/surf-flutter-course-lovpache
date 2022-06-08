@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/mock.dart';
 import 'package:places/ui/res/constants.dart';
 import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/ui/screen/widget/bottom_navbar.dart';
 
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
@@ -32,6 +33,7 @@ class _SightListScreenState extends State<SightListScreen> {
         itemBuilder: (context, index) {
           return (index.isOdd) ? const SizedBox(height: 16) : SightCard(sight: mocks.elementAt(index~/2));
         },),
+      bottomNavigationBar: const BottomNavBar(selected: 0),
       );
 
   }
