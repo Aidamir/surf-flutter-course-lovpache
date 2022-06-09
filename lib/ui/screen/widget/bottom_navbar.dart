@@ -14,37 +14,38 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(PlacesIcons.list), label: ''),
-        BottomNavigationBarItem(icon: Icon(PlacesIcons.map), label: ''),
-        BottomNavigationBarItem(icon: Icon(PlacesIcons.heart_full), label: ''),
-        BottomNavigationBarItem(icon: Icon(PlacesIcons.settings), label: ''),
-      ],
-      unselectedItemColor: Colors.indigo,
-      currentIndex: selected,
-      selectedItemColor: Colors.amber[800],
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+    return SizedBox(
+      height: 56,
+      child: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.list), label: ''),
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.map), label: ''),
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.heart_full), label: ''),
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.settings), label: ''),
+        ],
+        unselectedItemColor: Colors.indigo,
+        currentIndex: selected,
+        selectedItemColor: Colors.amber[800],
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
 
-      onTap: (val) {
-        switch (val) {
-          case 0:
-            Navigator.pop(context);
-            Navigator.push<SightListScreen>(
-              context,
-              MaterialPageRoute<SightListScreen>(builder: (context) => const SightListScreen()),
-            );
-            return;
-          case 2:
-            Navigator.pop(context);
-            Navigator.push<VisitingScreen>(
-              context,
-              MaterialPageRoute<VisitingScreen>(builder: (context) => const VisitingScreen()),
-            );
-            return;
-        }
-      },
+        onTap: (val) {
+          switch (val) {
+            case 0:
+              Navigator.pushReplacement<SightListScreen, Object>(
+                context,
+                MaterialPageRoute<SightListScreen>(builder: (context) => const SightListScreen()),
+              );
+              return;
+            case 2:
+              Navigator.pushReplacement<VisitingScreen, Object>(
+                context,
+                MaterialPageRoute<VisitingScreen>(builder: (context) => const VisitingScreen()),
+              );
+              return;
+          }
+        },
+      ),
     );
   }
 }

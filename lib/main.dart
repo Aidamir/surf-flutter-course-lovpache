@@ -19,8 +19,8 @@ class App extends StatelessWidget {
 //        primarySwatch: Colors.grey,
         scaffoldBackgroundColor: AppColors.backgroundColor,
       ),
-//      home: const SightListScreen(),
-        home: const VisitingScreen(),
+      home: const SightListScreen(),
+//        home: const VisitingScreen(),
       // SightDetails(sight: mocks.first),
     );
   }

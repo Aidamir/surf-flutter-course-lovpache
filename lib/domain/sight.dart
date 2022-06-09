@@ -19,3 +19,9 @@ class Sight {
   } 
   Sight(this.name, this.lat, this.lon, this.url, this.details, this._type);
 }
+
+/*class SightFavorite extends Sight {
+  DateTime? scheduled;
+  DateTime? visited;
+  SightFavorite(Sight sight, {} )
+}*/
