@@ -9,4 +9,5 @@ class AppAssets {
   static const listSvg = 'res/images/icon/List.svg';
   static const settingsSvg = 'res/images/icon/Settings.svg';
   static const mapSvg = 'res/images/icon/Map.svg';
+  static const cardSvg = 'res/images/icon/Card.svg';
 }

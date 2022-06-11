@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/mock.dart';
+import 'package:places/ui/res/app_assets.dart';
 import 'package:places/ui/res/app_typography.dart';
 import 'package:places/ui/res/constants.dart';
+import 'package:places/ui/res/places_icons_icons.dart';
+import 'package:places/ui/screen/visiting_screen/widgets/favorite_empty.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/sight_card_favorite.dart';
 import 'package:places/ui/screen/widget/bottom_navbar.dart';
 
@@ -24,6 +29,10 @@ class VisitingScreen extends StatefulWidget {
 }
 
 class _VisitingScreenState extends State<VisitingScreen> {
+  List<Sight> get favorites {
+    return List.of(mocks.where((element) => element.favorite));
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -81,13 +90,21 @@ class _VisitingScreenState extends State<VisitingScreen> {
         body: Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 0),
           child: TabBarView(children: [
-            ListView.builder(
+            if (favorites.isNotEmpty)
+              ListView.builder(
 //              padding: const EdgeInsets.all(16),
-              itemCount: (mocks.length * 2) ,
-              itemBuilder: (context, index) {
-                return (index.isOdd) ? const SizedBox(height: 16) : SightCardFavorite(sight: mocks.elementAt(index ~/ 2));
-              },
-            ),
+                itemCount: favorites.length * 2,
+                itemBuilder: (context, index) {
+                  return (index.isOdd)
+                      ? const SizedBox(height: 16)
+                      : SightCardFavorite(
+                          sight: favorites.elementAt(index ~/ 2),
+                          onDelete: onDelete,
+                        );
+                },
+              )
+            else
+              const FavoriteEmpty(iconPath: AppAssets.cardSvg, message: AppStrings.favoritesEmpty),
             Text('2222'),
           ]),
         ),
@@ -95,9 +112,13 @@ class _VisitingScreenState extends State<VisitingScreen> {
       ),
     );
   }
+
+  void onDelete() {
+    setState(() {});
+  }
 }
 
-          /*PreferredSize(
+/*PreferredSize(
             preferredSize: const Size.fromHeight(52),
             child: Container(
               margin: const EdgeInsets.only(left: 16, right: 16, top: 6, bottom: 6),

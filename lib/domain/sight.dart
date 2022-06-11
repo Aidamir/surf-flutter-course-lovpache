@@ -14,10 +14,13 @@ class Sight {
   double lon;
   String url;
   String details;
+  bool favorite;
+  bool visited;
   String get type {
     return sightTypes.keys.contains(_type) ? sightTypes[_type]! : 'Категория';
   } 
-  Sight(this.name, this.lat, this.lon, this.url, this.details, this._type);
+  Sight(this.name, this.lat, this.lon, this.url, this.details, this._type,
+      {this.favorite=false, this.visited=false});
 }
 
 /*class SightFavorite extends Sight {
