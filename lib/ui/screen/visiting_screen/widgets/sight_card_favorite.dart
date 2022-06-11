@@ -6,6 +6,7 @@ import 'package:places/ui/res/constants.dart';
 import 'package:places/ui/res/places_icons_icons.dart';
 import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/screen/widget/heart_widget.dart';
+import 'package:places/ui/screen/widget/place_action_button.dart';
 import 'package:places/ui/screen/widget/sight_card_base.dart';
 import 'package:places/ui/util/loading_progress.dart';
 
@@ -22,35 +23,16 @@ class SightCardFavorite extends SightCardBase {
         width: 17,
       ))
       ..add(
-        Material(
-          clipBehavior: Clip.hardEdge,
-          child: InkWell(
-            child: Container(
-              child: Icon(
-                PlacesIcons.close,
-                color: Colors.white,
-              ),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-              ),
-              height: 40,
-              width: 40,
-            ),
-            // SvgPicture.asset(AppAssets.closeSvg, width: 24, color: Colors.white,),
-            onTap: () {
-              sight.favorite = false;
-              onDelete();
-            },
-            borderRadius: const BorderRadius.all(Radius.circular(40)),
+        PlaceActionButton(
+          widget: const Icon(
+            PlacesIcons.close,
+            color: Colors.white,
           ),
-          color: Colors.transparent,
-//        borderRadius: const BorderRadius.all(Radius.circular(45)),
+          action: () {
+            sight.favorite = false;
+            onDelete();
+          },
         ),
-        /*Icon(
-        Icons.close,
-        size: 24,
-        color: Colors.white,
-      )*/
       );
   }
 
@@ -59,7 +41,7 @@ class SightCardFavorite extends SightCardBase {
     return super.bottomColumnChildren(context)
       ..add(
         const Text(
-          "Запланировано",
+          AppStrings.scheduled,
           style: AppTypography.lightTextStyle,
           overflow: TextOverflow.ellipsis,
           maxLines: 3,

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlaceActionButton extends StatelessWidget {
@@ -20,7 +19,7 @@ class PlaceActionButton extends StatelessWidget {
             height: 40,
             width: 40,
           ),
-          onTap: action),
+          onTap: action,),
       borderRadius: const BorderRadius.all(Radius.circular(40)),
       color: Colors.transparent,
     );
