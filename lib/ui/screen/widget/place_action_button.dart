@@ -16,8 +16,8 @@ class PlaceActionButton extends StatelessWidget {
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(40)),
             ),
-            height: 40,
-            width: 40,
+            height: 48,
+            width: 48,
           ),
           onTap: action,),
       borderRadius: const BorderRadius.all(Radius.circular(40)),
