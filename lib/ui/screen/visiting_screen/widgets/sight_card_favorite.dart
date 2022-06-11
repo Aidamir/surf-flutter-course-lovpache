@@ -11,37 +11,47 @@ import 'package:places/ui/util/loading_progress.dart';
 
 class SightCardFavorite extends SightCardBase {
   final void Function() onDelete;
+
   const SightCardFavorite({Key? key, required Sight sight, required this.onDelete}) : super(key: key, sight: sight);
 
   @override
   List<Widget> topRowChildren(BuildContext context) {
     return super.topRowChildren(context)
-      ..add(SvgPicture.asset(AppAssets.calendarSvg,color: Colors.white,width: 24 ))
-      ..add(const SizedBox(width: 17,))
-      ..add(Material(
-        clipBehavior: Clip.hardEdge,
-        child: InkWell(
-            child: const DecoratedBox(child: Icon(PlacesIcons.close, color: Colors.white,),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(48)),
-          ),
-            ) ,
+      ..add(SvgPicture.asset(AppAssets.calendarSvg, color: Colors.white, width: 24))
+      ..add(const SizedBox(
+        width: 17,
+      ))
+      ..add(
+        Material(
+          clipBehavior: Clip.hardEdge,
+          child: InkWell(
+            child: Container(
+              child: Icon(
+                PlacesIcons.close,
+                color: Colors.white,
+              ),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+              ),
+              height: 40,
+              width: 40,
+            ),
             // SvgPicture.asset(AppAssets.closeSvg, width: 24, color: Colors.white,),
-                onTap: (){
-                  sight.favorite = false;
-                  onDelete();
-                },
-          borderRadius: const BorderRadius.all(Radius.circular(40)),
-        ),
-        color: Colors.transparent,
+            onTap: () {
+              sight.favorite = false;
+              onDelete();
+            },
+            borderRadius: const BorderRadius.all(Radius.circular(40)),
+          ),
+          color: Colors.transparent,
 //        borderRadius: const BorderRadius.all(Radius.circular(45)),
-
-      ),
-      /*Icon(
+        ),
+        /*Icon(
         Icons.close,
         size: 24,
         color: Colors.white,
-      )*/);
+      )*/
+      );
   }
 
   @override

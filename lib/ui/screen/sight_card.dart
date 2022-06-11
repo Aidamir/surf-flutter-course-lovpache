@@ -6,17 +6,27 @@ import 'package:places/ui/res/constants.dart';
 import 'package:places/ui/res/places_icons_icons.dart';
 import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/screen/widget/heart_widget.dart';
+import 'package:places/ui/screen/widget/place_action_button.dart';
 import 'package:places/ui/screen/widget/sight_card_base.dart';
 import 'package:places/ui/util/loading_progress.dart';
 
 class SightCard extends SightCardBase {
   void Function() onChangeFavorite;
-  SightCard({Key? key, required Sight sight, required this.onChangeFavorite }) : super(key: key, sight: sight);
+
+  SightCard({Key? key, required Sight sight, required this.onChangeFavorite}) : super(key: key, sight: sight);
 
   @override
   List<Widget> topRowChildren(BuildContext context) {
-    return super.topRowChildren(context)..add(
-      Material(
+    return super.topRowChildren(context)
+      ..add(PlaceActionButton(
+              widget: sight.favorite ? SvgPicture.asset(AppAssets.heartFullSvg, )
+                  : SvgPicture.asset(AppAssets.heartSvg,),
+              action: () {
+                sight.favorite = !sight.favorite;
+                onChangeFavorite();
+              },),
+
+/*      Material(
         child: InkWell(
           child: sight.favorite ? SvgPicture.asset(AppAssets.heartFullSvg) : SvgPicture.asset(AppAssets.heartSvg) ,
           onTap: () {
@@ -25,8 +35,8 @@ class SightCard extends SightCardBase {
           },
         ),
         color: Colors.transparent,
-      ),
-    );
+      ),*/
+          );
   }
 
   @override

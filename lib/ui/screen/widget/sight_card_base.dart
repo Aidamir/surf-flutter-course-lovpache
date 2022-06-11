@@ -42,7 +42,7 @@ class SightCardBase extends StatelessWidget with LoadingImageCircularMixin {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.only(left: 16.0),
                       child: Row(
                         children: topRowChildren(context),
                       ),
