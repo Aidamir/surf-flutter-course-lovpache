@@ -18,10 +18,15 @@ class SightCardFavorite extends SightCardBase {
   @override
   List<Widget> topRowChildren(BuildContext context) {
     return super.topRowChildren(context)
-      ..add(SvgPicture.asset(AppAssets.calendarSvg, color: Colors.white, width: 24))
-      ..add(const SizedBox(
-        width: 17,
-      ))
+      ..add(
+        PlaceActionButton(
+          widget: const Icon(
+            PlacesIcons.calendar,
+            color: Colors.white,
+          ),
+          action: () {},
+        ),
+      )
       ..add(
         PlaceActionButton(
           widget: const Icon(
