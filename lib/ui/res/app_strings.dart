@@ -10,4 +10,6 @@ class AppStrings {
   static const scheduled = 'Запланировано';
   static const wantToVisit = 'Хочу посетить';
   static const visited = 'Посетил';
+  static const empty = 'пусто';
+  static const favorite = 'Избранное';
 }

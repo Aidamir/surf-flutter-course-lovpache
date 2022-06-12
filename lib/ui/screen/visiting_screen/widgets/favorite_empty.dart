@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/ui/res/app_colors.dart';
+import 'package:places/ui/res/app_strings.dart';
 import 'package:places/ui/res/app_typography.dart';
 
 class FavoriteEmpty extends StatelessWidget {
@@ -23,7 +24,7 @@ class FavoriteEmpty extends StatelessWidget {
         const SizedBox(
           height: 24,
         ),
-        Text("пусто", style: AppTypography.screenTitleTextStyle.apply(color: AppColors.textColorLight)),
+        Text(AppStrings.empty, style: AppTypography.screenTitleTextStyle.apply(color: AppColors.textColorLight)),
         const SizedBox(
           height: 8,
         ),
