@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
@@ -17,6 +18,9 @@ class OverlayColor extends MaterialStateColor {
 
   @override
   Color resolve(Set<MaterialState> states) {
+    if(kDebugMode) {
+      print(states);
+    }
     return Colors.black;
   }
 }
@@ -58,29 +62,53 @@ class _VisitingScreenState extends State<VisitingScreen> {
                 bottom: 30.0,
               ),
               child: Material(
-//                type: MaterialType.transparency,
+                type: MaterialType.button,
                 clipBehavior: Clip.antiAlias,
                 borderRadius: BorderRadius.circular(40),
+                color: AppColors.backgroundPlaceItemBottom,
                 child: Container(
                   height: 40,
-                  color: AppColors.backgroundPlaceItemBottom,
-                  child: TabBar(
-                    unselectedLabelStyle: AppTypography.lightTextStyle.copyWith(fontWeight: FontWeight.w700),
-                    unselectedLabelColor: AppColors.textColorLight,
-//            controller: _tabController,
-                    tabs: const [
-                      Tab(
-                        text: 'Хочу посетить',
+                  // child: Material(
+                  //   type: MaterialType.button,
+                  //   clipBehavior: Clip.antiAlias,
+                  //   color: AppColors.backgroundPlaceItemBottom,
+                  //   child: InkWell(
+                  //     highlightColor: Colors.transparent,
+                  //     child: Container(
+                  //       height: 40,
+                  //     ),
+                  //     onTap: () {
+                  //       if (kDebugMode) {
+                  //         print('sdsds');
+                  //       }
+                  //     },
+                  //   ),
+                  // ),
+//-------------------
+                      child: Theme(
+                        data: ThemeData(highlightColor: Colors.transparent),
+                        child: Material(
+                          type: MaterialType.button,
+                          clipBehavior: Clip.antiAlias,
+                          color: AppColors.backgroundPlaceItemBottom,
+                          child: TabBar(
+                            unselectedLabelStyle: AppTypography.lightTextStyle.copyWith(fontWeight: FontWeight.w700),
+                            unselectedLabelColor: AppColors.textColorLight,
+                            tabs: const [
+                              Tab(
+                                child: Text(AppStrings.wantToVisit),
+                              ),
+                              Tab(
+                                text: AppStrings.visited,
+                              ),
+                            ],
+                            indicator: const BoxDecoration(
+                              color: AppColors.textColorRegular,
+                              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                            ),
+                          ),
+                        ),
                       ),
-                      Tab(
-                        text: 'Посетил',
-                      ),
-                    ],
-                    indicator: const BoxDecoration(
-                      color: AppColors.textColorRegular,
-                      borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                    ),
-                  ),
                 ),
               ),
             ),
