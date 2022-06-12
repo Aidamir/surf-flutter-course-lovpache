@@ -9,6 +9,7 @@ import 'package:places/ui/res/constants.dart';
 import 'package:places/ui/res/places_icons_icons.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/favorite_empty.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/sight_card_favorite.dart';
+import 'package:places/ui/screen/visiting_screen/widgets/sight_card_visited.dart';
 import 'package:places/ui/screen/widget/bottom_navbar.dart';
 
 class OverlayColor extends MaterialStateColor {
@@ -34,7 +35,11 @@ class VisitingScreen extends StatefulWidget {
 
 class _VisitingScreenState extends State<VisitingScreen> {
   List<Sight> get favorites {
-    return List.of(mocks.where((element) => element.favorite));
+    return List.of(mocks.where((element) => element.favorite && !element.visited));
+  }
+
+  List<Sight> get visited {
+    return List.of(mocks.where((element) => element.visited));
   }
 
   @override
@@ -53,7 +58,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
             child: Text(AppStrings.favorite),
           ),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(52),
+            preferredSize: const Size.fromHeight(52),
             child: Padding(
               padding: const EdgeInsets.only(
                 top: 6,
@@ -64,6 +69,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
               child: Material(
                 clipBehavior: Clip.antiAlias,
                 borderRadius: BorderRadius.circular(40),
+                color: AppColors.backgroundPlaceItemBottom,
                 child: SizedBox(
                   height: 40,
                   child: Theme(
@@ -108,8 +114,22 @@ class _VisitingScreenState extends State<VisitingScreen> {
                 },
               )
             else
-              const FavoriteEmpty(iconPath: AppAssets.cardSvg, message: AppStrings.favoritesEmpty),
-            Text('2222'),
+              const FavoriteEmpty(iconPath: AppAssets.cardSvg, message: AppStrings.visitedEmpty),
+
+            if (visited.isNotEmpty)
+              ListView.builder(
+                itemCount: visited.length * 2,
+                itemBuilder: (context, index) {
+                  return (index.isOdd)
+                      ? const SizedBox(height: 16)
+                      : SightCardVisited(
+                          sight: visited.elementAt(index ~/ 2),
+                          onDelete: onDelete,
+                        );
+                },
+              )
+            else
+              const FavoriteEmpty(iconPath: AppAssets.cardSvg, message: AppStrings.visitedEmpty),
           ]),
         ),
         bottomNavigationBar: const BottomNavBar(selected: 2),
@@ -148,3 +168,9 @@ class _VisitingScreenState extends State<VisitingScreen> {
               ),
             ),
           ),*/
+
+
+                      // indicator: const BoxDecoration(
+                      //   color: AppColors.textColorRegular,
+                      //   borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                      // ),
