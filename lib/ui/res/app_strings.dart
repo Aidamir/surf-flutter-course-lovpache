@@ -5,4 +5,12 @@ class AppStrings {
   static const closedUntil = 'Закрыто до';
   static const scheduleIt = 'Запланировать';
   static const toFavorite = 'В Избранное';
+  static const favoritesEmpty = 'Отмечайте понравившиеся\nместа и они появиятся здесь.';
+  static const visitedEmpty = 'Завершите маршрут,\nчтобы место попало сюда.';
+  static const scheduled = 'Запланировано';
+  static const wantToVisit = 'Хочу посетить';
+  static const visited = 'Посетил';
+  static const empty = 'пусто';
+  static const favorite = 'Избранное';
+  static const placeVisited = 'Цель достигнута';
 }

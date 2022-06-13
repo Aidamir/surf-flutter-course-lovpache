@@ -1,95 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/res/app_assets.dart';
 import 'package:places/ui/res/constants.dart';
-import 'package:places/ui/screen/sight_details.dart';
-import 'package:places/ui/screen/widget/heart_widget.dart';
-import 'package:places/ui/util/loading_progress.dart';
+import 'package:places/ui/screen/widget/place_action_button.dart';
+import 'package:places/ui/screen/widget/sight_card_base.dart';
 
+class SightCard extends SightCardBase {
+  final void Function() onChangeFavorite;
 
-class SightCard extends StatelessWidget with LoadingImageCircularMixin {
-  final Sight sight;
-
-  const SightCard({Key? key, required this.sight}) : super(key: key);
+  const SightCard({Key? key, required Sight sight, required this.onChangeFavorite}) : super(key: key, sight: sight);
 
   @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push<SightDetails>(
-          context,
-          MaterialPageRoute<SightDetails>(builder: (context) => SightDetails(sight: sight)),
-        );
-      },
-      child: AspectRatio(
-        aspectRatio: 3/2,
-        child: Container(
-          height: 96 * 2,
-          clipBehavior: Clip.hardEdge,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            color: AppColors.backgroundPlaceItemBottom,
-          ),
-          child: Column(
-            children: [
-              Expanded(
-                child: Stack(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: Image.network(
-                        sight.url,
-                        fit: BoxFit.cover,
-                        loadingBuilder: loadingImageCircularProgress,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              sight.type,
-                              style: AppTypography.smallTitle16w500.apply(color: AppColors.backgroundColor),
-                            ),
-                          ),
-                          const HeartWidget(),
-                        ],
-                      ),
-                    ),
-                  ],
+  List<Widget> topRowChildren(BuildContext context) {
+    return super.topRowChildren(context)
+      ..add(
+        PlaceActionButton(
+          widget: sight.favorite
+              ? SvgPicture.asset(
+                  AppAssets.heartFullSvg,
+                )
+              : SvgPicture.asset(
+                  AppAssets.heartSvg,
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ), // Demo
-              Expanded(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints.expand(),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(sight.name, style: AppTypography.smallTitle16w500),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        Text(
-                          sight.details,
-                          style: AppTypography.lightTextStyle,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 3,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          action: () {
+            sight.favorite = !sight.favorite;
+            onChangeFavorite();
+          },
         ),
-      ),
-    );
+      );
+  }
+
+  @override
+  List<Widget> bottomColumnChildren(BuildContext context) {
+    return super.bottomColumnChildren(context)
+      ..add(
+        Text(
+          sight.details,
+          style: AppTypography.lightTextStyle,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 3,
+        ),
+      );
   }
 }
-

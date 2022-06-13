@@ -12,7 +12,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_svg: ^1.0.3
+  intl: ^0.17.0
 
 
 dev_dependencies:
@@ -21,13 +24,15 @@ dev_dependencies:
     sdk: flutter
   surf_lint_rules: ^1.5.0
 
+
+
 flutter:
 
   uses-material-design: true
   assets:
     - res/
     - res/images/
-    - res/images/icons/
+    - res/images/icon/
 
   fonts:
     - family: Roboto
@@ -40,4 +45,6 @@ flutter:
           weight: 500
         - asset: res/fonts/Roboto-Bold.ttf
           weight: 700
-
+    - family:  PlacesIcons
+      fonts:
+        - asset: res/fonts/PlacesIcons.ttf
