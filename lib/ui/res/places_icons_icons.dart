@@ -13,14 +13,11 @@
 ///
 /// 
 ///
+// ignore_for_file: avoid_redundant_argument_values, constant_identifier_names
+
 import 'package:flutter/widgets.dart';
 
 class PlacesIcons {
-  PlacesIcons._();
-
-  static const _kFontFam = 'PlacesIcons';
-  static const String? _kFontPkg = null;
-
   static const IconData settings = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData settings_fill = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData way_arrows_2 = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -48,4 +45,8 @@ class PlacesIcons {
   static const IconData map_full = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData heart_full = IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData map = IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+
+  static const _kFontFam = 'PlacesIcons';
+  static const String? _kFontPkg = null;
+  PlacesIcons._();
 }

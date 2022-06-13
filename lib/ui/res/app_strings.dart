@@ -12,4 +12,5 @@ class AppStrings {
   static const visited = 'Посетил';
   static const empty = 'пусто';
   static const favorite = 'Избранное';
+  static const placeVisited = 'Цель достигнута';
 }

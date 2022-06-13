@@ -1,12 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/mock.dart';
 import 'package:places/ui/res/app_assets.dart';
-import 'package:places/ui/res/app_typography.dart';
 import 'package:places/ui/res/constants.dart';
-import 'package:places/ui/res/places_icons_icons.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/favorite_empty.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/sight_card_favorite.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/sight_card_visited.dart';
@@ -22,6 +19,7 @@ class OverlayColor extends MaterialStateColor {
     if (kDebugMode) {
       print(states);
     }
+
     return Colors.black;
   }
 }
@@ -35,11 +33,11 @@ class VisitingScreen extends StatefulWidget {
 
 class _VisitingScreenState extends State<VisitingScreen> {
   List<Sight> get favorites {
-    return List.of(mocks.where((element) => element.favorite && !element.visited));
+    return List.of(mocks.where((element) => element.favorite && element.visited == null));
   }
 
   List<Sight> get visited {
-    return List.of(mocks.where((element) => element.visited));
+    return List.of(mocks.where((element) => element.visited != null));
   }
 
   @override
@@ -76,7 +74,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
                     data: ThemeData(highlightColor: Colors.transparent),
                     child: TabBar(
                       unselectedLabelStyle: AppTypography.lightTextStyle.copyWith(fontWeight: FontWeight.w700),
-                      unselectedLabelColor: AppColors.textColorLight,
+                      unselectedLabelColor: AppColors.textColorLight.withOpacity(0.56),
                       tabs: const [
                         Tab(
                           text: AppStrings.wantToVisit,
@@ -98,7 +96,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
           toolbarHeight: 80,
         ),
         body: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 0),
+          padding: const EdgeInsets.only(left: 16, right: 16),
           child: TabBarView(children: [
             if (favorites.isNotEmpty)
               ListView.builder(
@@ -115,7 +113,6 @@ class _VisitingScreenState extends State<VisitingScreen> {
               )
             else
               const FavoriteEmpty(iconPath: AppAssets.cardSvg, message: AppStrings.visitedEmpty),
-
             if (visited.isNotEmpty)
               ListView.builder(
                 itemCount: visited.length * 2,
@@ -129,7 +126,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
                 },
               )
             else
-              const FavoriteEmpty(iconPath: AppAssets.cardSvg, message: AppStrings.visitedEmpty),
+              const FavoriteEmpty(iconPath: AppAssets.goSvg, message: AppStrings.visitedEmpty),
           ]),
         ),
         bottomNavigationBar: const BottomNavBar(selected: 2),

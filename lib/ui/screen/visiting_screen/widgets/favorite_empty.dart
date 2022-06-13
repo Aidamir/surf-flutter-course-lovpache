@@ -14,7 +14,6 @@ class FavoriteEmpty extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
       children: [
         SvgPicture.asset(
           iconPath,
@@ -29,7 +28,7 @@ class FavoriteEmpty extends StatelessWidget {
           height: 8,
         ),
         Text(message,
-            style: AppTypography.lightTextStyle.apply(color: AppColors.textColorLight))
+            style: AppTypography.lightTextStyle.apply(color: AppColors.textColorLight),textAlign: TextAlign.center,),
       ],
     );
   }

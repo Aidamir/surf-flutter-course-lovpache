@@ -1,4 +1,3 @@
-import 'package:flutter_svg/svg.dart';
 
 class AppAssets {
   static const calendarSvg = 'res/images/icon/Calendar.svg';
@@ -10,4 +9,5 @@ class AppAssets {
   static const settingsSvg = 'res/images/icon/Settings.svg';
   static const mapSvg = 'res/images/icon/Map.svg';
   static const cardSvg = 'res/images/icon/Card.svg';
+  static const goSvg = 'res/images/icon/GO.svg';
 }

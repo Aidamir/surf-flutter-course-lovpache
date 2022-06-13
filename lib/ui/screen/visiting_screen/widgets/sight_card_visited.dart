@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/res/constants.dart';
 import 'package:places/ui/res/places_icons_icons.dart';
@@ -20,7 +21,7 @@ class SightCardVisited extends SightCardBase {
             color: Colors.white,
           ),
           action: () {
-            sight.visited = false;
+            sight.visited = null;
             onDelete();
           },
         ),
@@ -29,16 +30,13 @@ class SightCardVisited extends SightCardBase {
 
   @override
   List<Widget> bottomColumnChildren(BuildContext context) {
-    return super.bottomColumnChildren(context)
+    final widgets = super.bottomColumnChildren(context)
       ..add(
-        const Text(
-          AppStrings.scheduled,
-          style: AppTypography.lightTextStyle,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 3,
-        ),
+        Text('${AppStrings.placeVisited} ${DateFormat(DateFormat.HOUR24_MINUTE).format(sight.visited!)}',
+            style: AppTypography.lightTextStyle,),
       );
+    addClosedUntil(widgets);
+
+    return widgets;
   }
-
-
 }
