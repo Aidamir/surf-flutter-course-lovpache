@@ -14,6 +14,7 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
   @override
   Widget build(BuildContext context) {
     final appTheme = AppTheme.of(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -35,7 +36,7 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                       height: 32,
                       width: 32,
                       decoration:
-                          const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
+                          BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(10)), color: AppTheme.of(context).backgroundPlaceItemBottom),
                       child: const Icon(Icons.arrow_back_ios_outlined, size: 16),
                     ),
                   ),

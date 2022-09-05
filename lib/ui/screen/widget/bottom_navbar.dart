@@ -8,12 +8,12 @@ class BottomNavBar extends StatelessWidget {
   final int selected;
 
   const BottomNavBar({Key? key, required this.selected}) : super(key: key);
-
+//tabBarTheme: AppTheme.of(context).data.tabBarTheme,
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 56,
-      child: BottomNavigationBar(
+      child:  BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(PlacesIcons.list), label: ''),
           BottomNavigationBarItem(icon: Icon(PlacesIcons.map), label: ''),
