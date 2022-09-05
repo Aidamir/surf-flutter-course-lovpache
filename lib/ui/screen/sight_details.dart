@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/res/app_assets.dart';
 import 'package:places/ui/res/constants.dart';
-import 'package:places/ui/screen/widget/heart_widget.dart';
+import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/util/loading_progress.dart';
 
 class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
@@ -13,6 +13,8 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -34,7 +36,7 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                       height: 32,
                       width: 32,
                       decoration:
-                          const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
+                          BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(10)), color: AppTheme.of(context).backgroundPlaceItemBottom),
                       child: const Icon(Icons.arrow_back_ios_outlined, size: 16),
                     ),
                   ),
@@ -51,7 +53,7 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                       children: [
                         Text(
                           sight.name,
-                          style: AppTypography.largeTitle24w700,
+                          style: appTheme.data.textTheme.headline3,
                         ),
                         const SizedBox(
                           height: 2,
@@ -59,8 +61,8 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                         RichText(
                           text: TextSpan(
                             text: '${sight.type}   ',
-                            style: AppTypography.lightTextStyle
-                                .apply(color: AppColors.textColorRegular, fontWeightDelta: 4),
+                            style: appTheme.data.textTheme.bodyText1!
+                                .apply(color: appTheme.textColorRegular, fontWeightDelta: 4),
                             children: const [
                               TextSpan(text: '${AppStrings.closedUntil} 09.00', style: AppTypography.lightTextStyle),
                             ],
@@ -71,8 +73,8 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                         ),
                         Text(
                           sight.details,
-                          style: AppTypography.lightTextStyle.apply(
-                            color: AppColors.textColorRegular,
+                          style: appTheme.data.textTheme.bodyText1!.apply(
+                            color: appTheme.textColorRegular,
                           ),
                         ),
                         const SizedBox(
@@ -121,7 +123,7 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    SvgPicture.asset(AppAssets.calendarSvg),
+                                    SvgPicture.asset(AppAssets.calendarSvg, color: AppColors.textColorLight,),
                                     const SizedBox(
                                       width: 9,
                                     ),
@@ -143,7 +145,7 @@ class SightDetails extends StatelessWidget with LoadingImageCircularMixin {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const HeartWidget(color: AppColors.textColorRegular,),
+                                    SvgPicture.asset(AppAssets.heartSvg, color: AppColors.textColorRegular,),
                                     const SizedBox(
                                       width: 9,
                                     ),
