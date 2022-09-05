@@ -15,14 +15,14 @@ class BottomNavBar extends StatelessWidget {
       height: 56,
       child:  BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(PlacesIcons.list), label: ''),
-          BottomNavigationBarItem(icon: Icon(PlacesIcons.map), label: ''),
-          BottomNavigationBarItem(icon: Icon(PlacesIcons.heart_full), label: ''),
-          BottomNavigationBarItem(icon: Icon(PlacesIcons.settings), label: ''),
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.list), label: '',),
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.map), label: '',),
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.heart_full), label: '',),
+          BottomNavigationBarItem(icon: Icon(PlacesIcons.settings), label: '',),
         ],
-        unselectedItemColor: AppColors.screenTitleColor,
+//        unselectedItemColor: AppColors.screenTitleColor,
         currentIndex: selected,
-        selectedItemColor: Colors.amber[800],
+//        selectedItemColor: Colors.amber[800],
         showSelectedLabels: false,
         showUnselectedLabels: false,
 

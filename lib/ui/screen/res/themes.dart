@@ -72,6 +72,8 @@ final darkTheme = ThemeData(
         borderRadius: BorderRadius.all(Radius.circular(40.0)),
       ),),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    type: BottomNavigationBarType.fixed,
     unselectedIconTheme: IconThemeData(color: Colors.white),
-  ),
+    backgroundColor: AppColorsDark.backgroundColor,
+    ),
 );
