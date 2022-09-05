@@ -4,12 +4,12 @@ import 'package:places/domain/sight.dart';
 import 'package:places/ui/res/app_colors.dart';
 import 'package:places/ui/res/app_strings.dart';
 import 'package:places/ui/res/app_typography.dart';
+import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/util/loading_progress.dart';
 
 class SightCardBase extends StatelessWidget with LoadingImageCircularMixin {
   final Sight sight;
-
   const SightCardBase({Key? key, required this.sight}) : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class SightCardBase extends StatelessWidget with LoadingImageCircularMixin {
       child: Material(
         clipBehavior: Clip.hardEdge,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
-        color: AppColors.backgroundPlaceItemBottom,
+        color: AppTheme.of(context).backgroundPlaceItemBottom,
         child: Column(
           children: [
             SizedBox(
@@ -83,7 +83,7 @@ class SightCardBase extends StatelessWidget with LoadingImageCircularMixin {
  // ignore:avoid-unused-parameters
   List<Widget> bottomColumnChildren(BuildContext context) {
     return [
-      Text(sight.name, style: AppTypography.smallTitle16w500),
+      Text(sight.name, style: AppTheme.of(context).data.textTheme.headline2),
       const SizedBox(
         height: 2,
       ),

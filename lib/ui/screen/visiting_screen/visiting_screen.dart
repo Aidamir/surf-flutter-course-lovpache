@@ -4,6 +4,7 @@ import 'package:places/domain/sight.dart';
 import 'package:places/mock.dart';
 import 'package:places/ui/res/app_assets.dart';
 import 'package:places/ui/res/constants.dart';
+import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/favorite_empty.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/sight_card_favorite.dart';
 import 'package:places/ui/screen/visiting_screen/widgets/sight_card_visited.dart';
@@ -42,6 +43,8 @@ class _VisitingScreenState extends State<VisitingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -67,15 +70,14 @@ class _VisitingScreenState extends State<VisitingScreen> {
               child: Material(
                 clipBehavior: Clip.antiAlias,
                 borderRadius: BorderRadius.circular(40),
-                color: AppColors.backgroundPlaceItemBottom,
+                color: AppTheme.of(context).backgroundPlaceItemBottom,
                 child: SizedBox(
                   height: 40,
                   child: Theme(
-                    data: ThemeData(highlightColor: Colors.transparent),
-                    child: TabBar(
-                      unselectedLabelStyle: AppTypography.lightTextStyle.copyWith(fontWeight: FontWeight.w700),
-                      unselectedLabelColor: AppColors.textColorLight.withOpacity(0.56),
-                      tabs: const [
+                    data: ThemeData(
+                        highlightColor: Colors.transparent, tabBarTheme: AppTheme.of(context).data.tabBarTheme),
+                    child: const TabBar(
+                      tabs: [
                         Tab(
                           text: AppStrings.wantToVisit,
                         ),
@@ -83,10 +85,6 @@ class _VisitingScreenState extends State<VisitingScreen> {
                           text: AppStrings.visited,
                         ),
                       ],
-                      indicator: const BoxDecoration(
-                        color: AppColors.textColorRegular,
-                        borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                      ),
                     ),
                   ),
                 ),
@@ -166,8 +164,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
             ),
           ),*/
 
-
-                      // indicator: const BoxDecoration(
-                      //   color: AppColors.textColorRegular,
-                      //   borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                      // ),
+// indicator: const BoxDecoration(
+//   color: AppColors.textColorRegular,
+//   borderRadius: BorderRadius.all(Radius.circular(40.0)),
+// ),

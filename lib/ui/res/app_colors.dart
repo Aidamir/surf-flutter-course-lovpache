@@ -8,4 +8,10 @@ class AppColors {
   static const screenTitleColor = Color(0xff252849);
   static const greenDark = Color(0xff4CAF50);
   static const green = Color(0xff6ADA6F);
+  static const white = Colors.white;
+}
+
+class AppColorsDark {
+  static const backgroundColor = Color(0xff21222C);
+  static const backgroundPlaceItemBottom = Color(0xff1A1A20);
 }
